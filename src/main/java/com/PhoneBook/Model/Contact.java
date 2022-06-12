@@ -6,6 +6,9 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -24,12 +27,16 @@ public class Contact {
 	private Integer contactId;
     
 	@Column(name = "CONTACT_NAME")
+	@NotEmpty
+	@Size(min = 3,message = "Min Size Of Name is 3")
 	private String contactName;
 	
 	@Column(name = "CONTACT_NUMBER")
+	@NotEmpty
 	private String contactNumber;
 	
 	@Column(name = "CONTACT_EMAIL")
+	@Email
 	private String contactEmail;
 	
 	@Column(name = "ACTIVE_SWITCH")
