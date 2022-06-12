@@ -4,11 +4,16 @@ import java.time.LocalDate;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
+
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -24,6 +29,7 @@ public class Contact {
 	
 	@Id
 	@Column(name = "CONTACT_ID")
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer contactId;
     
 	@Column(name = "CONTACT_NAME")
@@ -43,9 +49,11 @@ public class Contact {
 	private Character activeSwitch;
 	
 	@Column(name = "CREATED_DATE")
+	@CreationTimestamp
 	private LocalDate createdDate;
 	
 	@Column(name = "UPDATED_DATE")
+	@UpdateTimestamp
 	private LocalDate updatedDate;
 	
 
