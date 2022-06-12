@@ -5,7 +5,7 @@ import org.springframework.stereotype.Repository;
 
 import com.PhoneBook.Model.Contact;
 
-@Repository
-public interface ContactRepo extends JpaRepository<Integer, Contact> {
+
+public interface ContactRepo extends JpaRepository<Contact, Integer> {
 
 }
